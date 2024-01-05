@@ -11,3 +11,27 @@ kernelspec:
 
 (tmux_index)=
 # TMUX
+
+
+
+:::bash
+echo "Hello, World!"
+:::
+:::{code-cell} ipython3
+:tags: ["remove-input"]
+%%bash
+echo "Hello, World!"
+:::
+
+
+:::{admonition} The title
+:class: note
+
+This note contains *Markdown*
+:::
+
+
+
+:::{note}
+sdfskf;slfjslkfjslfjslskj
+:::
