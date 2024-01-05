@@ -7,7 +7,6 @@ parts:
 - caption: Общая информация
   chapters:
   - file: info/typography
-  - file: info/new
 - caption: tmux
   chapters:
   - file: tmux/ch_000_intro # Введение
