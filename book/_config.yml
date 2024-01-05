@@ -287,7 +287,7 @@ sphinx:
     rediraffe_branch: 'main'
     rediraffe_redirects:
       new.ipynb: info/new.md
-      tmux/ch_000_intro.md: tmux/intro.md
+      tmux/intro.md: tmux/ch_000_intro.md
       #content-types/markdown.md: file-types/markdown.md
       #content-types/notebooks.ipynb: file-types/notebooks.ipynb
       #content-types/myst-notebooks.md: file-types/myst-notebooks.md
