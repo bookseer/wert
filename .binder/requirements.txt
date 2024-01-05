@@ -6,3 +6,4 @@ sphinx-examples
 sphinx_inline_tabs
 sphinx-proof
 sphinxext-rediraffe~=0.2.3
+jupyter-book
