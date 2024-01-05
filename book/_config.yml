@@ -141,9 +141,9 @@ html:
 
   # Add extra HTML to the left navbar
   extra_navbar: |
-    <div>
-      YOUR HTML
-    </div>
+      <div>
+        YOUR HTML
+      </div>
 
   html_extra_path:
     - _static/images/
