@@ -19,6 +19,7 @@ repository = "http://github.com/bookseer/dev"
 documentation = "https://dev.bookseer.org/docs.html"
 keywords = ["keywords"]
 packages = [{include = "bookseer", from = "src"}]
+exclude = ["book/*"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Education",
@@ -29,15 +30,13 @@ classifiers = [
     "Topic :: Education"
 ]
 
-exclude = ["book/*"]
-
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/bookseer/dev/issues"
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 pip = "^23.3.1"
 flask = "^3.0.0"
 matplotlib = "^3.8.0"
@@ -45,7 +44,6 @@ matplotlib = "^3.8.0"
 [tool.poetry.group.jupyter.dependencies]
 jupyterlab = "^4.0.0"
 notebook = "^7.0.0"
-
 
 [tool.poetry.group.dev.dependencies]
 ghp-import = "^2.1.0"
@@ -98,7 +96,7 @@ echo 'Exports dependencies to requirements.rxt'
 poetry export --format requirements.txt --output requirements.txt --without-hashes --without=dev --without=test
 echo 'Exports developer dependencies to requirements-dev.txt.'
 poetry export --format requirements.txt --output requirements-dev.txt --without-hashes
-echo 'Exports dependencies to binder requirements.rxt'
+echo 'Exports dependencies to ./binder/requirements.rxt'
 poetry export --format requirements.txt --output ./.binder/requirements.txt --without-hashes --only=binder --only=main
 """
 
@@ -122,13 +120,13 @@ stop = "deactivate; exit"
 
 # Build book
 build = """
-jupyter-book build --all --builder html book/
+jupyter-book book/ build --all --builder html
 """
 
 # Build and publish book
 publish = """
-jupyter-book build --all --builder html book/
-ghp-import --no-jekyll --push --force --cname=dev.bookseer.org book/_build/html
+jupyter-book build book/ --all --builder html
+ghp-import book/_build/html --no-jekyll --push --force --cname=dev.bookseer.org
 """
 
 
