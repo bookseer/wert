@@ -42,10 +42,8 @@ pip = "^23.3.1"
 flask = "^3.0.0"
 matplotlib = "^3.8.0"
 
-
 [tool.poetry.group.jupyter.dependencies]
 ipywidgets = "^8.1.1"
-jupytext = "^1.16.0"
 jupyterlab = "^4.0.0"
 notebook = "^7.0.0"
 sphinx-inline-tabs = "^2023.4.21"
@@ -75,6 +73,8 @@ pylint = "^3.0.3"
 pytest = "^7.4.3"
 pyupgrade = "^3.15.0"
 
+[tool.poetry.group.binder.dependencies]
+jupytext = "^1.16.0"
 
 [tool.poetry.extras]
 
@@ -97,7 +97,7 @@ poetry export --format requirements.txt --output requirements.txt --without-hash
 echo 'Exports developer dependencies to requirements-dev.txt.'
 poetry export --format requirements.txt --output requirements-dev.txt --without-hashes
 echo 'Exports dependencies to binder requirements.rxt'
-poetry export --format requirements.txt --output ./.binder/requirements.txt --without-hashes --only=jupyter --only=main
+poetry export --format requirements.txt --output ./.binder/requirements.txt --without-hashes --only=binder --only=main
 """
 
 # Update this repo
