@@ -1,0 +1,5 @@
+sphinx>=3.0
+sphinx-book-theme
+myst-parser
+sphinxcontrib-bibtex
+sphinx_togglebutton
