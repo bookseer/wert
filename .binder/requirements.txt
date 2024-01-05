@@ -1,7 +1,7 @@
 # Copied from 'sphinx' extra of pyproject.toml
 ipywidgets
-jupytext
-sphinx-click
+jupytext=1.16.0
+
 sphinx-examples
 sphinx_inline_tabs
 sphinx-proof
