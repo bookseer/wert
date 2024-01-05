@@ -43,6 +43,7 @@ jupyterlab = "^4.0.0"
 matplotlib = "^3.8.0"
 notebook = "^7.0.0"
 tqdm = "^4.66.1"
+sphinxext-rediraffe = "^0.2.7"
 
 
 [tool.poetry.group.dev.dependencies]
