@@ -18,11 +18,11 @@ kernelspec:
 echo "Hello, World!"
 :::
 
-:::{code-cell} ipython3
+```{code-cell} ipython3
 :tags: ["remove-input"]
 %%bash
 echo "Hello, World!"
-:::
+```
 
 
 :::{admonition} The title
