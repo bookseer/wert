@@ -141,7 +141,6 @@ html:
 
   # Add extra HTML to the left navbar
   extra_navbar: |
-    dghdfhdfhgdhgdghd dfgh dfgh dfh dfh dfh df
     <div>
       YOUR HTML
     </div>
