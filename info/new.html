@@ -1,0 +1,2285 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>MyST syntax cheat sheet &#8212; Заметки для разработчиков</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'info/new';</script>
+    <link rel="canonical" href="https://wert.bookseer.org/info/new.html" />
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Введение" href="../tmux/ch_000_intro.html" />
+    <link rel="prev" title="Типографские соглашения" href="typography.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Перейти к основному содержанию</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Сайт находится в разработке</div>
+  </div>
+
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Заметки для разработчиков - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Заметки для разработчиков - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Заметки для разработчиков
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="typography.html">Типографские соглашения</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MyST syntax cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">tmux</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_000_intro.html">Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_010_basic.html">Глава 1. Основы tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_020_configuring.html">Глава 2. Настройка tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_030_custom_environment.html">Глава 3. Создание настраиваемых рабочих окружений в tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_040_text_and_buffer.html">Глава 4. Работа с текстом и буферами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_050_pair_programming.html">Глава 5. Парное программирование с tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_060_workflow.html">Глава 6. Рабочий процесс с tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmux/ch_070_appendix.html">Приложение</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/bookseer/wert/main?urlpath=tree/book/info/new.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/bookseer/wert" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Исходный репозиторий"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/bookseer/wert/edit/main/book/info/new.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/bookseer/wert/issues/new?title=Issue%20on%20page%20%2Finfo/new.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Открыть вопрос"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/info/new.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Скачать файл записной книжки"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/info/new.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MyST syntax cheat sheet</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#headers">Headers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-headers">Target headers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-target-headers">Referencing target headers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quote">Quote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thematic-break">Thematic break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-comment">Line comment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-break">Block break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-block">HTML block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list">Ordered list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list">Unordered list</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-tables">Referencing tables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admonitions">Admonitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures-and-images">Figures and images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-figures">Referencing figures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-images">Referencing images</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math">Math</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-math-directives">Referencing math directives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code">Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-line-code">In-line code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-and-syntax-highlighting">Code and syntax highlighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executable-code">Executable code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tags">Tags</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-variables">Gluing variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-numbers">Gluing numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-visualizations">Gluing visualizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-math">Gluing math</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-documents">Reference documents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="myst-syntax-cheat-sheet">
+<span id="myst-cheatsheet"></span><h1>MyST syntax cheat sheet<a class="headerlink" href="#myst-syntax-cheat-sheet" title="Permalink to this heading">#</a></h1>
+<section id="headers">
+<h2>Headers<a class="headerlink" href="#headers" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="gh"># Heading level 1</span>
+<span class="gu">## Heading level 2</span>
+<span class="gu">### Heading level 3</span>
+<span class="gu">#### Heading level 4</span>
+<span class="gu">##### Heading level 5</span>
+<span class="gu">###### Heading level 6</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="gh"># MyST Cheat Sheet</span>
+</pre></div>
+</div>
+</td>
+<td><p>Level 1-6 headings, denoted by number of <code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="target-headers">
+<h2>Target headers<a class="headerlink" href="#target-headers" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>(target_header)=
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>(myst_cheatsheet)=
+<span class="gh"># MyST Cheat Sheet</span>
+</pre></div>
+</div>
+</td>
+<td><p>See <a class="reference internal" href="#ref-target-headers"><span class="std std-ref">below</span></a> how to reference target headers.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="referencing-target-headers">
+<span id="ref-target-headers"></span><h3>Referencing target headers<a class="headerlink" href="#referencing-target-headers" title="Permalink to this heading">#</a></h3>
+<p>Targets can be referenced with the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref">ref inline role</a> which uses the section title by default:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{ref}`myst_cheatsheet`
+</pre></div>
+</div>
+<p>You can specify the text of the target:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{ref}`MyST syntax lecture &lt;myst_cheatsheet&gt;`
+</pre></div>
+</div>
+<p>Another alternative is to use Markdown syntax:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">MyST syntax lecture</span>](<span class="na">myst_cheatsheet</span>)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="quote">
+<h2>Quote<a class="headerlink" href="#quote" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 40%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="k">&gt; </span><span class="ge">text</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="k">&gt; </span><span class="ge">this is a quote</span>
+</pre></div>
+</div>
+</td>
+<td><p>quoted text</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="thematic-break">
+<h2>Thematic break<a class="headerlink" href="#thematic-break" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>---
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is the end of some text.
+
+---
+
+<span class="gu">## New Header</span>
+</pre></div>
+</div>
+</td>
+<td><p>Creates a horizontal line in the output</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="line-comment">
+<h2>Line comment<a class="headerlink" href="#line-comment" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>% text
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>a line
+% a comment
+another line
+</pre></div>
+</div>
+</td>
+<td><p>See <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/syntax.html#syntax-comments">Comments</a> for more information.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="block-break">
+<h2>Block break<a class="headerlink" href="#block-break" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>+++
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is an example of
++++ {&quot;meta&quot;: &quot;data&quot;}
+a block break
+</pre></div>
+</div>
+</td>
+<td><p>This is an example of</p>
+<p>a block break</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="html-block">
+<h2>HTML block<a class="headerlink" href="#html-block" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">tagName</span><span class="p">&gt;</span> text <span class="p">&lt;</span><span class="nt">tagName</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span> This is a paragraph <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p> This is a paragraph </p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 40%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">text</span>](<span class="na">target</span>)
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">Jupyter Book</span>](<span class="na">https://jupyterbook.org</span>)
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference external" href="https://jupyterbook.org">Jupyter Book</a></p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">text</span>](<span class="na">relative_path</span>)
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">PDF documentation</span>](<span class="na">../advanced/pdf</span>)
+</pre></div>
+</div>
+</td>
+<td><p><span class="xref myst">PDF documentation</span></p></td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">text</span>](<span class="na">target &quot;title&quot;</span>)
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">Jupyter Book</span>](<span class="na">https://jupyterbook.org &quot;JB Homepage&quot;</span>)
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference external" href="https://jupyterbook.org">Jupyter Book</a></p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>&lt;target&gt;
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>&lt;https://jupyterbook.org&gt;
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference external" href="https://jupyterbook.org">https://jupyterbook.org</a></p></td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">text</span>][<span class="nl">key</span>]
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">Jupyter Book</span>][<span class="nl">intro_page</span>]
+
+[<span class="nl">intro_page</span>]: <span class="na">https://jupyterbook.org</span>
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference external" href="https://jupyterbook.org">Jupyter Book</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h2>
+<section id="ordered-list">
+<h3>Ordered list<a class="headerlink" href="#ordered-list" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="k">1.</span> First item
+<span class="k">2.</span> Second item
+<span class="w">    </span><span class="k">1.</span> First sub-item
+</pre></div>
+</div>
+</td>
+<td><ol class="arabic simple">
+<li><p>First item</p></li>
+<li><p>Second item</p>
+<ol class="arabic simple">
+<li><p>First sub-item</p></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="k">1.</span> First item
+<span class="k">2.</span> Second item
+<span class="w">    </span><span class="k">*</span><span class="w"> </span>First sub-item
+</pre></div>
+</div>
+</td>
+<td><ol class="arabic simple">
+<li><p>First item</p></li>
+<li><p>Second item</p>
+<ul class="simple">
+<li><p>First subitem</p></li>
+</ul>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unordered-list">
+<h3>Unordered list<a class="headerlink" href="#unordered-list" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="k">*</span><span class="w"> </span>First item
+<span class="k">*</span><span class="w"> </span>Second item
+<span class="w">  </span><span class="k">*</span><span class="w"> </span>First subitem
+</pre></div>
+</div>
+</td>
+<td><ul class="simple">
+<li><p>First item</p></li>
+<li><p>Second item</p>
+<ul>
+<li><p>First subitem</p></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="k">*</span><span class="w"> </span>First item
+<span class="w">  </span><span class="k">1.</span> First subitem
+<span class="w">  </span><span class="k">2.</span> Second subitem
+</pre></div>
+</div>
+</td>
+<td><ul class="simple">
+<li><p>First item</p>
+<ol class="arabic simple">
+<li><p>First subitem</p></li>
+<li><p>Second subitem</p></li>
+</ol>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>| a    | b    |
+| :--- | ---: |
+| c    | d    |
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>|    Training   |   Validation   |
+| :------------ | -------------: |
+|        0      |        5       |
+|     13720     |      2744      |
+</pre></div>
+</div>
+</td>
+<td><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Training</p></th>
+<th class="head text-right"><p>Validation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>0</p></td>
+<td class="text-right"><p>5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>13720</p></td>
+<td class="text-right"><p>2744</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{list-table}
+:header-rows: 1
+
+<span class="k">*</span><span class="w"> </span>- Col1
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Col2
+<span class="k">*</span><span class="w"> </span>- Row1 under Col1
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Row1 under Col2
+<span class="k">*</span><span class="w"> </span>- Row2 under Col1
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Row2 under Col2
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{list-table}
+:header-rows: 1
+
+<span class="k">*</span><span class="w"> </span>- Training
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Validation
+<span class="k">*</span><span class="w"> </span>- 0
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>5
+<span class="k">*</span><span class="w"> </span>- 13720
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>2744
+```
+</pre></div>
+</div>
+</td>
+<td><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Training</p></th>
+<th class="head"><p>Validation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>13720</p></td>
+<td><p>2744</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{list-table} Table title
+:header-rows: 1
+:name: label-to-reference
+
+<span class="k">*</span><span class="w"> </span>- Col1
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Col2
+<span class="k">*</span><span class="w"> </span>- Row1 under Col1
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Row1 under Col2
+<span class="k">*</span><span class="w"> </span>- Row2 under Col1
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Row2 under Col2
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{list-table} This table title
+:header-rows: 1
+:name: example-table
+
+<span class="k">*</span><span class="w"> </span>- Training
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Validation
+<span class="k">*</span><span class="w"> </span>- 0
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>5
+<span class="k">*</span><span class="w"> </span>- 13720
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>2744
+```
+</pre></div>
+</div>
+</td>
+<td><table class="table" id="example-table">
+<caption><span class="caption-number">Таблица 1 </span><span class="caption-text">This table title</span><a class="headerlink" href="#example-table" title="Постоянная ссылка на таблицу">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Training</p></th>
+<th class="head"><p>Validation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>13720</p></td>
+<td><p>2744</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="referencing-tables">
+<h3>Referencing tables<a class="headerlink" href="#referencing-tables" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>In order to <span class="xref myst">reference a table</span> you must add a label to it.
+To add a label to your table simply include a <code class="docutils literal notranslate"><span class="pre">:name:</span></code> parameter followed by the label of your table.
+In order to add a <span class="xref myst">numbered reference</span>, you
+must also include a table title. See example above.</p>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`label`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`example-table` is an example.
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference internal" href="#example-table"><span class="std std-numref">Таблица 1</span></a> is an example.</p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{ref}`text &lt;label&gt;`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This {ref}`table &lt;example-table&gt;` is an example.
+</pre></div>
+</div>
+</td>
+<td><p>This <a class="reference internal" href="#example-table"><span class="std std-ref">table</span></a> is an example.</p></td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`text %s &lt;label&gt;`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`Tbl %s &lt;example-table&gt;` is an example.
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference internal" href="#example-table"><span class="std std-numref">Tbl 1</span></a> is an example.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="admonitions">
+<h2>Admonitions<a class="headerlink" href="#admonitions" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{admonition} Title
+text
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{admonition} This is a title
+An example of an admonition with a title.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition-this-is-a-title admonition">
+<p class="admonition-title">This is a title</p>
+<p>An example of an admonition with a title.</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{note}
+text
+```
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{note} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{note} Notes require <span class="gs">**no**</span> arguments,
+so content can start here.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Notes require <strong>no</strong> arguments,
+so content can start here.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{warning} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{warning} This is an example
+of a warning directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>This is an example
+of a warning directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{tip} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{tip} This is an example
+of a tip directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition tip">
+<p class="admonition-title">Совет</p>
+<p>This is an example
+of a tip directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{caution} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{caution} This is an example
+of a caution directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition caution">
+<p class="admonition-title">Осторожно</p>
+<p>This is an example
+of a caution directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{attention} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{attention} This is an example
+of an attention directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>This is an example
+of an attention directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{danger} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{danger} This is an example
+of a danger directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition danger">
+<p class="admonition-title">Опасно</p>
+<p>This is an example
+of a danger directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{error} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{error} This is an example
+of an error directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition error">
+<p class="admonition-title">Ошибка</p>
+<p>This is an example
+of an error directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{hint} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{hint} This is an example
+of a hint directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition hint">
+<p class="admonition-title">Подсказка</p>
+<p>This is an example
+of a hint directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{important} text
+some more text...
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{important} This is an example
+of an important directive.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="admonition important">
+<p class="admonition-title">Важно</p>
+<p>This is an example
+of an important directive.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{admonition} Title
+:class: warning
+text
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{admonition} This is a title
+:class: warning
+An example of an admonition with a title and a warning style.
+```
+</pre></div>
+</div>
+</td>
+<td><div class="warning admonition">
+<p class="admonition-title">This is a title</p>
+<p>An example of an admonition with a title and a warning style.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="figures-and-images">
+<h2>Figures and images<a class="headerlink" href="#figures-and-images" title="Permalink to this heading">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/></p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Content is not permitted in the image directive.</p>
+</div>
+</aside>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{figure} ./path/to/figure.jpg
+:name: label
+
+caption
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{figure} ../images/C-3PO_droid.png
+:height: 150px
+:name: figure-example
+
+Here is my figure caption!
+```
+</pre></div>
+</div>
+</td>
+<td><figure class="align-default" id="figure-example">
+<a class="reference internal image-reference" href="images/C-3PO_droid.png"><img alt="images/C-3PO_droid.png" src="images/C-3PO_droid.png" style="height: 150px;" /></a>
+<figcaption>
+<p><span class="caption-number">Рис. 1 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure-example" title="Постоянная ссылка на рисунок">#</a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{image} ./path/to/figure.jpg
+:name: label
+```
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{image} ../images/C-3PO_droid.png
+:height: 150px
+:name: image-example
+```
+</pre></div>
+</div>
+</td>
+<td><a class="reference internal image-reference" href="images/C-3PO_droid.png" id="image-example"><img alt="images/C-3PO_droid.png" id="image-example" src="images/C-3PO_droid.png" style="height: 150px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <span class="xref std std-doc">../content/figures</span> and <span class="xref std std-doc">../file-types/markdown</span> for more information.</p>
+<section id="referencing-figures">
+<h3>Referencing figures<a class="headerlink" href="#referencing-figures" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`label`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`figure-example`is a
+figure example.
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference internal" href="#figure-example"><span class="std std-numref">Рис. 1</span></a> is a
+figure example.</p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`text %s &lt;label&gt;`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{numref}`Figure %s &lt;figure-example&gt;`
+is an example.
+</pre></div>
+</div>
+</td>
+<td><p><a class="reference internal" href="#figure-example"><span class="std std-numref">Figure 1</span></a>
+is an example.</p></td>
+</tr>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{ref}`text &lt;label&gt;`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This {ref}`figure &lt;figure-example&gt;`
+is an example.
+</pre></div>
+</div>
+</td>
+<td><p>This <a class="reference internal" href="#figure-example"><span class="std std-ref">figure</span></a>
+is an example.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="referencing-images">
+<h3>Referencing images<a class="headerlink" href="#referencing-images" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{ref}`text &lt;label&gt;`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This {ref}`image &lt;image-example&gt;`
+is an example.
+</pre></div>
+</div>
+</td>
+<td><p>This <a class="reference internal" href="#image-example"><span class="std std-ref">image</span></a>
+is an example.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="math">
+<h2>Math<a class="headerlink" href="#math" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is an example of an
+inline equation $z=\sqrt{x^2+y^2}$.
+</pre></div>
+</div>
+</td>
+<td><p>This is an example of an
+inline equation <span class="math notranslate nohighlight">\(z=\sqrt{x^2+y^2}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Math blocks</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is an example of a
+math block
+
+$$
+z=\sqrt{x^2+y^2}
+$$
+</pre></div>
+</div>
+</td>
+<td><p>This is an example of a
+math block</p>
+<div class="math notranslate nohighlight">
+\[
+    z=\sqrt{x^2+y^2}
+    \]</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Math blocks with labels</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is an example of a
+math block with a label
+
+$$
+z=\sqrt{x^2+y^2}
+$$ (mylabel)
+</pre></div>
+</div>
+</td>
+<td><p>This is an example of a
+math block with a label</p>
+<div class="math notranslate nohighlight" id="equation-mylabel">
+<span class="eqno">(1)<a class="headerlink" href="#equation-mylabel" title="Ссылка на это уравнение">#</a></span>\[
+    z=\sqrt{x^2+y^2}
+    \]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Math directives</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is an example of a
+math directive with a
+label
+```{math}
+:label: eq-label
+
+z=\sqrt{x^2+y^2}
+```
+</pre></div>
+</div>
+</td>
+<td><p>This is an example of a
+math directive with a
+label</p>
+<div class="math notranslate nohighlight" id="equation-eq-label">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-label" title="Ссылка на это уравнение">#</a></span>\[z=\sqrt{x^2+y^2}\]</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <span class="xref std std-doc">../content/math</span> for more information.</p>
+<section id="referencing-math-directives">
+<h3>Referencing math directives<a class="headerlink" href="#referencing-math-directives" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{eq}`label`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>Check out equation {eq}`eq-label`.
+</pre></div>
+</div>
+</td>
+<td><p>Check out equation <a class="reference internal" href="#equation-eq-label">(2)</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this heading">#</a></h2>
+<section id="in-line-code">
+<h3>In-line code<a class="headerlink" href="#in-line-code" title="Permalink to this heading">#</a></h3>
+<p><strong>Example</strong>:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>Wrap in-line code blocks in backticks: <span class="sb">`boolean example = true;`</span>.
+</pre></div>
+</div>
+<p><strong>Result</strong>:</p>
+<p>Wrap in-line code blocks in backticks: <code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">example</span> <span class="pre">=</span> <span class="pre">true;</span></code>.</p>
+</section>
+<section id="code-and-syntax-highlighting">
+<h3>Code and syntax highlighting<a class="headerlink" href="#code-and-syntax-highlighting" title="Permalink to this heading">#</a></h3>
+<p><strong>Example</strong>:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="sb">```python</span>
+<span class="n">note</span> <span class="o">=</span> <span class="s2">&quot;Python syntax highlighting&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="sb">```none</span>
+<span class="s">No syntax highlighting.</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p><strong>Result</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span> <span class="o">=</span> <span class="s2">&quot;Python syntax highlighting&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No syntax highlighting.
+</pre></div>
+</div>
+</section>
+<section id="executable-code">
+<h3>Executable code<a class="headerlink" href="#executable-code" title="Permalink to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Make sure to include this front-matter YAML block at the beginning of your <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">jupytext</span><span class="p">:</span>
+  <span class="n">formats</span><span class="p">:</span> <span class="n">md</span><span class="p">:</span><span class="n">myst</span>
+  <span class="n">text_representation</span><span class="p">:</span>
+    <span class="n">extension</span><span class="p">:</span> <span class="o">.</span><span class="n">md</span>
+    <span class="n">format_name</span><span class="p">:</span> <span class="n">myst</span>
+<span class="n">kernelspec</span><span class="p">:</span>
+  <span class="n">display_name</span><span class="p">:</span> <span class="n">Python</span> <span class="mi">3</span>
+  <span class="n">language</span><span class="p">:</span> <span class="n">python</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">python3</span>
+<span class="o">---</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+note = &quot;Python syntax highlighting&quot;
+print(note)
+```
+</pre></div>
+</div>
+<p><strong>Result</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">note</span> <span class="o">=</span> <span class="s2">&quot;Python syntax highlighting&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">note</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python syntax highlighting
+</pre></div>
+</div>
+</div>
+</div>
+<p>See <span class="xref myst"></span> for more information.</p>
+<section id="tags">
+<span id="myst-cheatsheet-code-cell-tags"></span><h4>Tags<a class="headerlink" href="#tags" title="Permalink to this heading">#</a></h4>
+<p>The following <code class="docutils literal notranslate"><span class="pre">tags</span></code> can be applied to code cells by introducing them as options:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tag option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;full-width&quot;</span></code></p></td>
+<td><p>Cell takes up all of the horizontal space</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;full-width&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;scroll-output&quot;</span></code></p></td>
+<td><p>Make output cell scrollable</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;scroll-output&quot;]
+for ii in range(100):
+  print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;margin&quot;</span></code></p></td>
+<td><p>Move code cell to the right margin</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;margin&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;hide-input&quot;</span></code></p></td>
+<td><p>Hide cell but the display the outputs</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;hide-input&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;hide-output&quot;</span></code></p></td>
+<td><p>Hide the outputs of a cell</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;hide-output&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;hide-cell&quot;</span></code></p></td>
+<td><p>Hides inputs and outputs of code cell</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;hide-cell&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;remove-input&quot;</span></code></p></td>
+<td><p>Remove the inputs of a cell</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;remove-input&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;remove-output&quot;</span></code></p></td>
+<td><p>Remove the outputs of a cell</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;remove-output&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;remove-cell&quot;</span></code></p></td>
+<td><p>Remove the entire code cell</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;remove-cell&quot;]
+print(&quot;This is a test.&quot;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;raises-exception&quot;</span></code></p></td>
+<td><p>Mark cell as “expected to error”</p></td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+:tags: [&quot;raises-exception&quot;]
+while True print(&#39;Hello world&#39;)
+```
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="gluing-variables">
+<h3>Gluing variables<a class="headerlink" href="#gluing-variables" title="Permalink to this heading">#</a></h3>
+<p><strong>Example</strong>:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+from myst_nb import glue
+my_variable = &quot;here is some text!&quot;
+glue(&quot;glued_text&quot;, my_variable)
+```
+
+Here is an example of how to glue text: {glue:}`glued_text`
+</pre></div>
+</div>
+<p><strong>Result</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="n">my_variable</span> <span class="o">=</span> <span class="s2">&quot;here is some text!&quot;</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;glued_text&quot;</span><span class="p">,</span> <span class="n">my_variable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;here is some text!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is an example of how to glue text: <span class="output text_plain">„here is some text!“</span></p>
+<p>See <span class="xref std std-ref">glue/gluing</span> for more information.</p>
+</section>
+<section id="gluing-numbers">
+<h3>Gluing numbers<a class="headerlink" href="#gluing-numbers" title="Permalink to this heading">#</a></h3>
+<p><strong>Example</strong>:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+from myst_nb import glue
+import numpy as np
+import pandas as pd
+
+ss = pd.Series(np.random.randn(4))
+ns = pd.Series(np.random.randn(100))
+
+glue(&quot;ss_mean&quot;, ss.mean())
+glue(&quot;ns_mean&quot;, ns.mean(), display=False)
+```
+
+Here is an example of how to glue numbers: {glue:}`ss_mean` and {glue:}`ns_mean`.
+</pre></div>
+</div>
+<p><strong>Result</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">ss</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;ss_mean&quot;</span><span class="p">,</span> <span class="n">ss</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;ns_mean&quot;</span><span class="p">,</span> <span class="n">ns</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is an example of how to glue numbers:  and .</p>
+<p>See <span class="xref std std-ref">glue/gluing</span> for more information.</p>
+</section>
+<section id="gluing-visualizations">
+<h3>Gluing visualizations<a class="headerlink" href="#gluing-visualizations" title="Permalink to this heading">#</a></h3>
+<p><strong>Example</strong>:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+from myst_nb import glue
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 200)
+y = np.sin(x)
+fig, ax = plt.subplots()
+ax.plot(x, y, &#39;b-&#39;, linewidth=2)
+
+glue(&quot;glued_fig&quot;, fig, display=False)
+<span class="sb">```</span>
+
+<span class="sb">This is an inline glue example of a figure: {glue:}`glued_fig`.</span>
+<span class="sb">This is an example of pasting a glued output as a block:</span>
+<span class="sb">```{glue:} glued_fig</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p><strong>Result</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;glued_fig&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is an inline glue example of a figure: .
+This is an example of pasting a glued output as a block:</p>
+<p>See <span class="xref std std-ref">glue/gluing</span> for more information.</p>
+</section>
+<section id="gluing-math">
+<h3>Gluing math<a class="headerlink" href="#gluing-math" title="Permalink to this heading">#</a></h3>
+<p><strong>Example</strong>:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython3
+import sympy as sym
+x, y = sym.symbols(&#39;x y&#39;)
+z = sym.Function(&#39;z&#39;)
+z = sym.sqrt(x**2+y**2)
+glue(&quot;example_eq&quot;, z, display=False)
+<span class="sb">```</span>
+
+<span class="sb">To glue a math equation try</span>
+<span class="sb">```{glue:math} example_eq</span>
+<span class="sb">:label: glue-eq-example</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p><strong>Result</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;example_eq&quot;</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To glue a math equation try:</p>
+<p>See <span class="xref myst"></span> for more information.</p>
+</section>
+</section>
+<section id="reference-documents">
+<h2>Reference documents<a class="headerlink" href="#reference-documents" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{doc}`path/to/document`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>See {doc}`../content/citations`
+for more information.
+</pre></div>
+</div>
+</td>
+<td><p>See <span class="xref std std-doc">../content/citations</span>
+for more information.</p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{doc}`text &lt;path/to/document&gt;`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>See {doc}`here &lt;../content/citations&gt;`
+for more information.
+</pre></div>
+</div>
+</td>
+<td><p>See <span class="xref std std-doc">here</span>
+for more information.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this heading">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><br/><br/><br/><br/></p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Footnotes are displayed at the very bottom of the page.</p>
+</div>
+</aside>
+<table class="table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 40%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[^ref]
+
+[<span class="nl">^ref</span>]: <span class="na">Footnote text</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is an example of a footnote.[^footnote1]
+
+[<span class="nl">^footnote1</span>]: <span class="na">The definition for referencing</span>
+ footnotes is generally placed at the bottom
+ of the document.
+</pre></div>
+</div>
+</td>
+<td><p>This is a footnote reference.<a class="footnote-reference brackets" href="#myref" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/syntax.html#syntax-footnotes">Footnotes</a> for more information.</p>
+</section>
+<section id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Make sure you have a reference bibtex file. You can create one by running <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">references.bib</span></code>
+or view a <a class="reference download internal" download="" href="../_downloads/33e59b5ca9ec342068223d604c3f8d55/references.bib"><code class="xref download docutils literal notranslate"><span class="pre">references.bib</span></code></a> example.</p>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{cite}`mybibtexcitation`
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This example generates the following
+citation {cite}`perez2011python`.
+</pre></div>
+</div>
+</td>
+<td><p>This example generates the following
+citation <span id="id2">[]</span>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>To include a list of citations mentioned in the document, introduce the <code class="docutils literal notranslate"><span class="pre">bibliography</span></code> directive</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{bibliography}
+:filter: docname in docnames
+```
+</pre></div>
+</div>
+<p>See <span class="xref std std-doc">../content/citations</span> for more information.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote brackets" id="myref" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>This <strong>is</strong> the footnote definition.</p>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "bookseer/wert",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./info"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="typography.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title">Типографские соглашения</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tmux/ch_000_intro.html"
+       title="следующая страница">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title">Введение</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#headers">Headers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-headers">Target headers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-target-headers">Referencing target headers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quote">Quote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thematic-break">Thematic break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-comment">Line comment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-break">Block break</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-block">HTML block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list">Ordered list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list">Unordered list</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-tables">Referencing tables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admonitions">Admonitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures-and-images">Figures and images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-figures">Referencing figures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-images">Referencing images</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math">Math</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing-math-directives">Referencing math directives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code">Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-line-code">In-line code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-and-syntax-highlighting">Code and syntax highlighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executable-code">Executable code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tags">Tags</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-variables">Gluing variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-numbers">Gluing numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-visualizations">Gluing visualizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gluing-math">Gluing math</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-documents">Reference documents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+По Красников Александр
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2023–2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
