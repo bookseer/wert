@@ -1,6 +1,6 @@
 # Copied from 'sphinx' extra of pyproject.toml
 ipywidgets
-jupytext=1.16.0
+jupytext==1.16.0
 
 sphinx-examples
 sphinx_inline_tabs
