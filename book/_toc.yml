@@ -9,6 +9,7 @@ parts:
   - file: info/typography
 - caption: tmux
   chapters:
+  - file: tmux/index
   - file: tmux/ch_000_intro # Введение
   - file: tmux/ch_010_basic # Глава 1. Основы tmux
   - file: tmux/ch_020_configuring # Глава 2. Настройка tmux
