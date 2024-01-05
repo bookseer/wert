@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -67,13 +67,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'info/new';</script>
     <link rel="canonical" href="https://wert.bookseer.org/info/new.html" />
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Jupyter Notebook files" href="notebooks.html" />
+    <link rel="next" title="Введение" href="../tmux/ch_000_intro.html" />
     <link rel="prev" title="Типографские соглашения" href="typography.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
@@ -186,7 +186,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="typography.html">Типографские соглашения</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">MyST syntax cheat sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Jupyter Notebook files</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">tmux</span></p>
 <ul class="nav bd-sidenav">
@@ -2151,11 +2150,11 @@ citation <span id="id2">[]</span>.</p></td>
       </div>
     </a>
     <a class="right-next"
-       href="notebooks.html"
+       href="../tmux/ch_000_intro.html"
        title="следующая страница">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Jupyter Notebook files</p>
+        <p class="prev-next-title">Введение</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2243,21 +2242,22 @@ citation <span id="id2">[]</span>.</p></td>
   <div class="footer-item">
     
 
-  <p class="copyright">
+  </div>
+  
+  <div class="footer-item">
     
-      © Копирайт 2023–2024.
-      <br/>
+  </div>
+  
+  <div class="footer-item">
     
-  </p>
+<div class="extra_footer">
+  2023-2024
+<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.en" target="_blank" rel="nofollow noindex noopener">CC BY-NC 4.0</a>
+<img src="_static/img/cc-icons.svg#cc-logo" style="width:12px">
+<img src="_static/img/cc-icons.svg#cc-by" style="width:12px">
+<img src="_static/img/cc-icons.svg#cc-nc" style="width:12px">
 
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
+</div>
   </div>
   
 </div>
