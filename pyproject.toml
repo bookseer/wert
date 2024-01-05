@@ -39,44 +39,41 @@ exclude = ["book/*"]
 [tool.poetry.dependencies]
 python = "^3.10"
 pip = "^23.3.1"
+flask = "^3.0.0"
+matplotlib = "^3.8.0"
+
+[tool.poetry.group.jupyter.dependencies]
 ipywidgets = "^8.1.1"
 jupyterlab = "^4.0.0"
-matplotlib = "^3.8.0"
-notebook = "^7.0.0"
-tqdm = "^4.66.1"
-
-
-
-
-[tool.poetry.group.dev.dependencies]
-# dev dependencies
-ghp-import = "^2.1.0"
-jupyter-book = "^0.15.1"
 jupytext = "^1.16.0"
-pyautogui = "^0.9.54"
-pyppeteer = "^1.0.2"
+notebook = "^7.0.0"
 sphinx-inline-tabs = "^2023.4.21"
 sphinx-proof = "^0.1.3"
 sphinx-togglebutton = "^0.3.2"
 sphinxext-rediraffe = "^0.2.7"
+tqdm = "^4.66.1"
+
+[tool.poetry.group.dev.dependencies]
+ghp-import = "^2.1.0"
+jupyter-book = "^0.15.1"
+poetry-exec-plugin = "^0.3.6"
+poetry-plugin-export = "^1.6.0"
+pyautogui = "^0.9.54"
+pyppeteer = "^1.0.2"
 termtosvg = "^1.1.0"
-# test dependencies
+
+[tool.poetry.group.test.dependencies]
 bandit = {extras = ["toml"], version = "^1.7.6"}
 black = "^23.12.0"
 isort = "^5.13.1"
 mypy = "^1.7.1"
 nbqa = "^1.7.1"
-poetry-exec-plugin = "^0.3.6"
-poetry-plugin-export = "^1.6.0"
 pre-commit = "^3.6.0"
 pre-commit-hooks = "^4.5.0"
 pylint = "^3.0.3"
 pytest = "^7.4.3"
 pyupgrade = "^3.15.0"
-# docs dependencies
-mkdocs = "^1.5.3"
-# edu dependencies
-flask = "^3.0.0"
+
 
 [tool.poetry.extras]
 
@@ -95,10 +92,11 @@ pre-commit install;
 export = """
 poetry lock
 echo 'Exports dependencies to requirements.rxt'
-poetry export --format requirements.txt --output requirements.txt --without-hashes --without=dev
+poetry export --format requirements.txt --output requirements.txt --without-hashes --without=dev --without=test
 echo 'Exports developer dependencies to requirements-dev.txt.'
-poetry export --format requirements.txt --output requirements-dev.txt --without-hashes --only=dev
-poetry export --format requirements.txt --output ./.binder/requirements.txt --without-hashes
+poetry export --format requirements.txt --output requirements-dev.txt --without-hashes
+echo 'Exports dependencies to binder requirements.rxt'
+poetry export --format requirements.txt --output ./.binder/requirements.txt --without-hashes --without=dev --without=test
 """
 
 # Update this repo
