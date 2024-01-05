@@ -153,7 +153,7 @@ html:
   baseurl: "https://wert.bookseer.org/"
 
   # A path to a favicon image
-  favicon: "_static/images/favicon.svg"
+  favicon: "_static/images/favicon.ico"
 
   # Whether to add an "edit this page" button to pages.
   # If `true`, repository information in `repository`must be filled in
