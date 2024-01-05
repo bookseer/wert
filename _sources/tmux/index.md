@@ -10,4 +10,4 @@ kernelspec:
 ---
 
 (tmux_index)=
-# Руководство по tmux 7
+# Руководство по tmux 8
