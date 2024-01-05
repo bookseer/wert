@@ -4,7 +4,7 @@
 title: Заметки для разработчиков
 author: Красников Александр
 copyright: 2023–2024
-logo: _static/images/logo.png
+logo: _static/images/logo-wide.png
 email: writer@bookseer.org
 description: >- # this means to ignore newlines until "baseurl:"
   Сборник руководств и советов для разработчиков.
