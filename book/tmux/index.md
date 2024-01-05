@@ -33,5 +33,12 @@ This note contains *Markdown*
 
 
 :::{note}
-sdfskf;slfjslkfjslfjslskj
+1 note
 :::
+
+
+
+:::{note}
+2 note :::
+
+:::{note} 3 note :::
